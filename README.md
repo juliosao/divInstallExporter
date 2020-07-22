@@ -1,2 +1,5 @@
 # divInstallExporter
-Una herramienta para exportar ficheros de instalación de DIV2
+Una herramienta para extraer el contenido de los ficheros de instalación creados por Div Games Studio 2
+
+# Uso
+divInstallExporter fichero.001
