@@ -34,7 +34,7 @@
  * \typedef stDivArchiveHeader
  * \brief Describe los campos comunes a todos los ficheros de DIV
  */
-typedef struct
+typedef struct _stDivArchiveHeader
 {
     char type[3]; /**< Tipo de fichero, suele coincidir con la extensión */
     uint32_t magic; /**< Magia del fichero, siempre debería valer 0x000A0D1A */

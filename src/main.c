@@ -13,7 +13,7 @@ int main(int argc, char** argv)
 
     for(int i = 1; i< argc; i++)
     {
-        FILE* f = fopen(argv[i],"r");
+        FILE* f = fopen(argv[i],"rb");
 
         if(f == NULL)
         {
@@ -38,13 +38,13 @@ int main(int argc, char** argv)
 			printf("Magia: %8.8X\n",a.hdr.magic);
             printf("Version: %u\n",(unsigned int)a.hdr.version);
             printf("Numero de ficheros encontrados: %u\n",(unsigned int)a.numFiles);
-			
+
             for(idx=0; idx<a.numFiles; idx++)
             {
                 printf("Fichero %d: %s. offset=%u len=%u,\n",(idx+1),a.files[idx].name,(unsigned)a.files[idx].offset,(unsigned)a.files[idx].len);
                 divArchiver_extractChunk(f,&a,idx);
             }
-				
+
 		}
 		divArchiver_unload(&a);
     }

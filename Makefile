@@ -1,5 +1,5 @@
 .PHONY: clean
-CFLAGS=-std=gnu99
+CFLAGS=-std=gnu99 -g
 
 CFLAGS+=-I ./inc
 
@@ -20,6 +20,8 @@ bin:
 
 obj:
 	mkdir obj
+
+Debug: bin/divInstallExporter
 
 clean:
 	-rm -r obj bin
