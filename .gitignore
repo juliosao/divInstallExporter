@@ -2,4 +2,5 @@ divInstallExporter.layout
 divInstallExporter.cbp
 bin
 obj
+tests
 .vscode

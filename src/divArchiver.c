@@ -57,13 +57,14 @@ int divArchiver_extractChunk(FILE *src, stDivArchiver *desc, unsigned pos)
 		return -1;
 	}
 
-	buff = malloc(desc->files[pos].len * sizeof(unsigned char));
+	buff = malloc(desc->files[pos].compressedLength * sizeof(unsigned char));
 	if (buff == NULL)
 		return DIV_ERR_MEM;
 
+	// TODO: Descomprimir si compressedLength <> length
 	fseek(src, desc->files[pos].offset + DIV_FILE_HDR_LEN, SEEK_SET);
-	fread(buff, desc->files[pos].len * sizeof(unsigned char), 1, src);
-	fwrite(buff, desc->files[pos].len * sizeof(unsigned char), 1, dst);
+	fread(buff, desc->files[pos].compressedLength * sizeof(unsigned char), 1, src);
+	fwrite(buff, desc->files[pos].compressedLength * sizeof(unsigned char), 1, dst);
 	fclose(dst);
 
 	free(buff);

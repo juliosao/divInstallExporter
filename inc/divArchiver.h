@@ -9,8 +9,8 @@ typedef struct _filedef
 {
     uint8_t name[16]; /**< Nombre del fichero */
     uint32_t offset; /**< Posición dentro del fichero (menos el header) */
-    uint32_t unkonwn; 
-    uint32_t len; /**< Longitud del fichero */
+    uint32_t length; 
+    uint32_t compressedLength; /**< Longitud del fichero */
 
 } stDivArchiverFileDef;
 
