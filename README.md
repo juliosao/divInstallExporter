@@ -18,7 +18,9 @@ Para compilar esta utilidad es necesario tener la librería zlib instalada, así
 make
 
 ## En windows
-Debido a que su usa gcc, debería bastar con ejecutar este comando (Teniendo la zlib instalada y demás)
+Ejecutar este comando (Se supone que tenemos mingw32 instalado y en el path)
 
 mingw32-make
+
+Tras ello copiar la libreria zlib.dll al directorio bin.
 
