@@ -9,8 +9,8 @@ typedef struct _filedef
 {
     uint8_t name[16]; /**< Nombre del fichero */
     uint32_t offset; /**< Posición dentro del fichero (menos el header) */
-    uint32_t length; 
-    uint32_t compressedLength; /**< Longitud del fichero */
+    uint32_t compressedLength; /**< Longitud del fichero (Comprimido) */
+    uint32_t length; /**< Longitud del fichero */
 
 } stDivArchiverFileDef;
 
@@ -36,7 +36,7 @@ typedef struct a
  * Cuando se deje de usar esta estructura, es necesario liberar los recursos en ella
  * contenidos mediante la funcion divArchiver_unload
  */
-int divArchiver_load(FILE* src, stDivArchiver* a );
+DIV_RESULT divArchiver_load(FILE* src, stDivArchiver* a );
 
 /**
  * \fn void divArchiver_unload(stDivArchiver* a);
@@ -46,7 +46,7 @@ int divArchiver_load(FILE* src, stDivArchiver* a );
 void divArchiver_unload(stDivArchiver* a);
 
 /**
- * \fn extractChunk(FILE* src, stDivArchiver* desc, unsigned pos);
+ * \fn divArchiver_extractChunk(FILE* src, stDivArchiver* desc, unsigned pos);
  * \brief Extrae un fichero del archivador que le pasen
  * \param src Descriptor de fichero a usar para la operación de leer los datos del archivador
  * \param desc Estructura con la descripcion de los metadatos del archivador
@@ -54,6 +54,6 @@ void divArchiver_unload(stDivArchiver* a);
  * 
  * El fichero se extaerá en la ruta actual con el nombre que tenga asignado en la estructura.
  */
-int divArchiver_extractChunk(FILE* src, stDivArchiver* desc, unsigned pos);
+DIV_RESULT divArchiver_extractChunk(FILE* src, stDivArchiver* desc, unsigned pos);
 
 #endif
